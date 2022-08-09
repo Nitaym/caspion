@@ -1,0 +1,15 @@
+FROM caspion-dev-container
+COPY . /app
+WORKDIR /app
+# # This one fails on permissions
+RUN npm i; exit 0
+# Fix it
+RUN npm install -g nvm
+RUN nvm install 14
+RUN nvm use 14
+
+# RUN chown -R root /app
+# RUN chmod 775  -R /usr/local/lib/node_modules
+# RUN chmod 775 -R /root/.npm
+# # Then reinstall (probably can fix the permissions earlier)
+RUN npm i

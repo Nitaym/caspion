@@ -1,0 +1,3 @@
+FROM caspion-infra
+RUN yarn serve
+ENTRYPOINT yarn serve
